@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 //import axios from 'axios';
 import '../App.css';
 import Title from './Title';
@@ -6,11 +6,13 @@ import Description from './Description';
 import Search from './Search';
 
 const Home = () => {
+  const [apiData, setApiData] = useState(null);
   return (
     <div>
       <Title />
-      <Description />
-      <Search />
+      {!apiData && <Description />}
+
+      <Search setApiData={setApiData} />
     </div>
   );
 };

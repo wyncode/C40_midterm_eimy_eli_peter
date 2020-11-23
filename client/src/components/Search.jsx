@@ -1,32 +1,28 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import '../App.css';
 import axios from 'axios';
 // import API_KEY from '../../../env';
 
-const Search = () => {
+const Search = ({ setApiData }) => {
   const [searchTerm, setSearchTerm] = useState('');
-  const [apiData, setApiData] = useState([]);
-  //const [error, setError] = useState(false);
 
-  useEffect(() => {
-    console.log('its working');
+  const handleSubmit = (e) => {
+    e.preventDefault();
     axios
-      .get(`/api/search`)
+      .get(`/api/search?search=${searchTerm}`)
       .then((res) => {
-        console.log(res);
-        //setError(false);
         setApiData(res);
       })
       .catch((err) => {
         console.log(err);
         //setError(true)
       });
-  }, [searchTerm]);
+  };
 
   return (
     <div>
       <div className="form-container">
-        <form onSubmit={(e) => e.preventDefault()}>
+        <form onSubmit={handleSubmit}>
           <input
             type="text"
             id="searchbar"
