@@ -1,7 +1,6 @@
 if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config();
 }
-
 const express = require('express');
 const path = require('path');
 const app = express();
@@ -22,7 +21,6 @@ app.get('/api/search', async (request, response) => {
     console.log(err);
   }
 });
-
 if (process.env.NODE_ENV === 'production') {
   // Serve any static files
   app.use(express.static(path.join(__dirname, 'client/build')));
@@ -31,7 +29,6 @@ if (process.env.NODE_ENV === 'production') {
     response.sendFile(path.join(__dirname, 'client/build', 'index.html'));
   });
 }
-
 const port = process.env.PORT || 8080;
 app.listen(port, () => {
   console.log(`API listening on port ${port}...`);
