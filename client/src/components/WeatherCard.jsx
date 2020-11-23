@@ -8,6 +8,12 @@ function WeatherCard({ apiData }) {
   const [main, setMain] = useState('');
   const [iconID, setIconID] = useState('');
 
+  //   const assignClass = () => {
+  //     if(apiData...description === "sunny"){
+  //         return 'sunny'
+  //     }
+  //   }
+
   return (
     <div>
       {apiData?.data?.main?.feels_like}
