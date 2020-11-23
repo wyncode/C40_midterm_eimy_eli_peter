@@ -5,12 +5,24 @@ if (process.env.NODE_ENV !== 'production') {
 const express = require('express');
 const path = require('path');
 const app = express();
+const axios = require('axios');
 
 // JUST FOR DEMO PURPOSES, PUT YOUR ACTUAL API CODE HERE
-app.get('/api/demo', (request, response) => {
-  response.json({
-    message: 'Hello from server.js'
-  });
+
+const searchWeatherAPI = async (request, response) => {};
+
+app.get('/api/search', async (request, response) => {
+  const { q } = request.query;
+  console.log(q);
+  try {
+    const { data } = await axios.get(
+      `https://api.openweathermap.org/data/2.5/weather?q=${q}&appid=${process.env.API_KEY}`
+    );
+    console.log(data);
+    response.json(data);
+  } catch (err) {
+    console.log(err);
+  }
 });
 // END DEMO
 
