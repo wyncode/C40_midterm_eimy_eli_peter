@@ -1,14 +1,18 @@
-import React, { useState, useEffect, Component } from 'react';
-import WeatherFetch from './weatherFetch.js';
+import React /*{ useState, useEffect }*/ from 'react';
+import { AppContextProvider } from './context/AppContext';
+//import ContextDemo from './components/ContextDemo';
+import Home from './components/Home';
 
 import './App.css';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <WeatherFetch />
-    </div>
+    <AppContextProvider>
+      <div id="demo">
+        <Home />
+      </div>
+    </AppContextProvider>
   );
-}
+};
 
 export default App;
