@@ -1,17 +1,11 @@
 import React, { useState, useEffect } from 'react';
 
-// const assignClass = () => {
-//     if(apiData?.data?.weather[0]?.description
-//       === "sunny"){
-//         return 'sunny'
-//     }
-//   }
-
 const Outfit = ({ apiData }) => {
   const [main, setMain] = useState(null);
   const [outfit, setOutfit] = useState({
-    male: '👨:',
-    female: '👩:'
+    male: '👨: PJ Day! PS4 in mind?',
+    female:
+      '👩: Better stay in Netflix chickflix is on! Nighties and messy bun it is!'
   });
 
   const recomendation = (apiData) => {
@@ -62,53 +56,58 @@ const Outfit = ({ apiData }) => {
         rec.female = '👩: Bootcut pants, Sneakers, Sheer Top, Coat.';
         break;
 
-      // case "Smoke":
+      case 'Smoke':
+        rec.male =
+          '👨: Air Filtering Mask, Light long sleve shirt, long pants, gloves';
+        rec.female =
+          '👩: Air filtering mask, Boots, Light long sleeve shirt, Long pants, gloves';
+        break;
 
-      // rec.male = "👨: "
-      // rec.female ="👩: "
-      // break;
+      case 'Haze':
+        rec.male = '👨: Jeans and a t-shirt';
+        rec.female = '👩: Jean dress, Trendy long sleeve shirt, Stylish boots';
+        break;
 
-      // case "Haze":
-      // rec.male = "👨: "
-      // rec.female ="👩: "
-      // break;
+      case 'Dust':
+        rec.male =
+          "👨: Wear a facemask, you don't want to breathe in the air today";
+        rec.female =
+          '👩: Facemask recommended, Full covering dress with long stockings and Boots to match.';
+        break;
 
-      // case "Dust":
-      // rec.male = "👨: "
-      // rec.female ="👩: "
-      // break;
+      case 'Fog':
+        rec.male = '👨: A light jacket or maybe a hoodie ';
+        rec.female =
+          '👩: Anti-Freeze hair style, hoodie, long pants, Booties, Light long sleeve shirt.';
+        break;
 
-      // case "Fog":
-      // rec.male = "👨: "
-      // rec.female ="👩: "
-      // break;
+      case 'Sand':
+        rec.male = '👨: A suit of armor, protect yourself! ';
+        rec.female = '👩: A suit of armor, protect yourself!';
+        break;
 
-      // case "Sand":
-      // rec.male = "👨: "
-      // rec.female ="👩: "
-      // break;
+      case 'Ash':
+        rec.male = '👨: Bring an umbrella and a face mask';
+        rec.female =
+          '👩: Cover up your face and wear some long sleeves and jeans';
+        break;
 
-      // case "Ash":
-      // rec.male = "👨: "
-      // rec.female ="👩: "
-      // break;
+      case 'Squall':
+        rec.male = "👨: Wrap up it's going to get windy!";
+        rec.female = '👩: A heavy jacket would be best';
+        break;
 
-      // case "Squall":
-      // rec.male = "👨: "
-      // rec.female ="👩: "
-      // break;
-
-      // case "Tornado":
-      // rec.male = "👨: "
-      // rec.female ="👩: "
-      // break;
+      case 'Tornado':
+        rec.male = '👨: Heavy windbreaker... who are we kidding get out!';
+        rec.female = '👩: Who cares get out!';
+        break;
     }
     return rec;
   };
 
   useEffect(() => {
     setOutfit(recomendation(apiData));
-  }, []);
+  }, [apiData]);
 
   return (
     <>
@@ -119,71 +118,3 @@ const Outfit = ({ apiData }) => {
 };
 
 export default Outfit;
-
-// const Outfit = props => {
-//
-//   <div class="container">
-//   <div class="Card">
-//     <h1 id="title">Daily Suggestions.</h1>
-
-//     {/* <h2 class="rain">Rain</h2>
-//       <h3 id="Men">👨Men</h3>
-//         <p id="fit">Traverse Poncho, Mesh Sneakers, Waterproof Boonie Hat, T-shirt, Shorts.</p>
-//       <h3 id="women"> 👩Women</h3>
-//         <p id="fit">Jumpsuit, Clogs, Rain Bonnet, Rain Poncho, Waterproof bag.</p> */}
-
-//     {/* <h2 class="showerRain">Shower Rain</h2>
-//       <h3 id="Men">👨Men</h3>
-//         <p id="fit">Rain Jacket, Active Pants, Watertight Cap, Short Sleve T-shirt, Waterproof Boots.</p>
-//       <h3 id="women"> 👩Women</h3>
-//         <p id="fit">Vinyl Smock, Short Sleeve Dress, Waterproof Hood, Waterproof Tote Bag, Rain Booties.</p>
-//      */}
-
-//     {/* <h2 id="thunderstorm">Thunderstorm</h2>
-//       <h3 id="Men">👨Men</h3>
-//         <p id="fit">Shoreline Jacket, Slim Fit Pants, Fit Henley, Waterproof Chukka.</p>
-//       <h3 id="women"> 👩Women</h3>
-//         <p id="fit">Hooded Rain Jacket, lightweight Pants, Wrap Top, Waterproof bag, Rain Boots.</p>
-//  */}
-
-//     {/* <h2 id="mist">Mist</h2>
-//       <h3 id="Men">👨Men</h3>
-//         <p id="fit">Coat, Pants, Sneakers, Long Sleeve Shirt.</p>
-//       <h3 id="women"> 👩Women</h3>
-//         <p id="fit">Bootcut pants, Sneakers, Sheer Top, Coat.</p> */}
-
-//     {/* <h2 id="snow">Snow</h2>
-//       <h3 id="Men">👨Men</h3>
-//         <p id="fit">Flannel Shirt Jacket, Snow Boots, Weather-ready Parka, Dark-Wash Jeans, Puffer Vest, Wool Beanie, Leather or wool Gloves, Wool Overcoat, Scarf.</p>
-//       <h3 id="women"> 👩Women</h3>
-//         <p id="fit">Winter Coat, Mittens, Snow Boots, Wool Beanie, Jeans, Thermal Tights, Scarf.</p>
-//      */}
-
-//     <h2 id="brokenClouds">Broken Clouds</h2>
-//       <h3 id="Men">👨Men</h3>
-//         <p id="fit">Umbrella, Rain Jacket, Boonie Hat, Active Pants, Boots, Short Sleeves, Poncho</p>
-//       <h3 id="women"> 👩Women</h3>
-//         <p id="fit">Umbrella, Rain Jacket, Lightweight Pants, Booties, Short Sleve Jumpsuit  </p>
-
-//     <h2 id="scatteredClouds">Scattered Clouds</h2>
-//       <h3 id="Men">👨Men</h3>
-//         <p id="fit">Shorts, T-shirt, Boots.</p>
-//       <h3 id="women"> 👩Women</h3>
-//         <p id="fit">Shorts, booties, Tank Blouse.</p>
-
-//     {/* <h2 id="fewClouds">Few Clouds</h2>
-//       <h3 id="Men">👨Men</h3>
-//         <p id="fit">Sweater, Long Sleeve Shirt, Jeans, Boots, Umbrella.</p>
-//       <h3 id="women"> 👩Women</h3>
-//         <p id="fit">Knit Cardigan, Button-down Collar Blouse, Skinny Jeans, Boots, Umbrella.</p> */}
-
-//     {/* <h2 id="clearSky">Clear Sky</h2>
-//       <h3 id="Men">👨Men</h3>
-//         <p id="fit">Shorts, T-shirt, Sneakers.</p>
-//       <h3 id="women"> 👩Women</h3>
-//         <p id="fit">Tank Dress, Sun Hat, Platform Wedge Sandals.</p> */}
-//   </div>
-//   </div>
-
-//   );
-// }
