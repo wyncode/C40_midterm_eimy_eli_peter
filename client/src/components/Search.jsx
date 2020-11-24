@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import '../App.css';
 import axios from 'axios';
-// import API_KEY from '../../../env';
 
 const Search = ({ setApiData }) => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -28,7 +27,7 @@ const Search = ({ setApiData }) => {
             id="searchbar"
             onChange={(e) => setSearchTerm(e.target.value)}
           ></input>
-          <input type="submit" value="Go!"></input>
+          <input id="sumbit_button" type="submit" value="Go!"></input>
         </form>
       </div>
     </div>

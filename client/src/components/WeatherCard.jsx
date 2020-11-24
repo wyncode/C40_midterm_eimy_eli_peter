@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
-// import axios from 'axios';
+import Card from 'react-bootstrap/Card';
 
 function WeatherCard({ apiData }) {
   const [feels_like, setFeelsLike] = useState('');
   const [mainTemp, setMainTemp] = useState('');
   const [description, setDescription] = useState('');
-  const [main, setMain] = useState('');
+
   const [iconID, setIconID] = useState('');
 
   //   const assignClass = () => {
@@ -15,37 +15,16 @@ function WeatherCard({ apiData }) {
   //   }
 
   return (
-    <div>
-      {apiData?.data?.main?.feels_like}
-      {/* <h1>Main Temperature : {mainTemp} Degrees Celsius</h1>
-      <h1>Feels like: {feels_like} Degrees Celsius</h1>
-      {/* <h1>Weather Parameter: {main}</h1> */}
-      {/* <h1>Description : {description}</h1> */}
-      {/* <img src={'http://openweathermap.org/img/wn/' + iconID + '@2x.png'} /> */}{' '}
-    </div>
+    <Card>
+      <Card.Body>
+        <Card.Title className="weather_text">{apiData?.data?.name}</Card.Title>
+        <Card.Text className="weather_text">
+          <p>Main Temperature : {apiData?.data?.main?.temp} ℉</p>
+          <p>Feels like: {apiData?.data?.main?.feels_like} ℉</p>
+          <p>Description : {apiData?.data?.weather[0]?.description} </p>
+        </Card.Text>
+      </Card.Body>
+    </Card>
   );
 }
 export default WeatherCard;
-
-// import React from 'react';
-// import { Card } from 'react-bootstrap';
-
-// const WeatherCard = ({}) => {
-//   return (
-//     <Card>
-//       <Card.Body>
-//           <Card.Title>
-//             {.name}
-//           </Card.Title>
-//           <Card.Text>
-//               <img src={'http://openweathermap.org/img/wn/' + iconID + '@2x.png'} />
-//               <p>Main Temperature : {.mainTemp} Degrees Celsius</p>
-//               <p>Feels like: {feels_like} Degrees Celsius</p>
-//               <p>Description : {description}</p>
-//           </Card.Text>
-//       </Card.Body>
-//     </Card>
-//   );
-// };
-
-// export default WeatherCard

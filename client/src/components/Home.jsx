@@ -14,9 +14,9 @@ const Home = () => {
       {!apiData ? (
         <Description />
       ) : (
-        <>
+        <div style={{ margin: '1rem 0' }}>
           <WeatherCard apiData={apiData} />
-        </>
+        </div>
       )}
 
       <Search setApiData={setApiData} />
