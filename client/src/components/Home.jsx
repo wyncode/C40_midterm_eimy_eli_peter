@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-//import axios from 'axios';
 import '../App.css';
 import Title from './Title';
 import Description from './Description';

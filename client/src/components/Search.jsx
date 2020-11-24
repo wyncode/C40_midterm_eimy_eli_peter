@@ -27,7 +27,12 @@ const Search = ({ setApiData }) => {
             id="searchbar"
             onChange={(e) => setSearchTerm(e.target.value)}
           ></input>
-          <input id="sumbit_button" type="submit" value="Go!"></input>
+          <input
+            id="sumbit_button"
+            variant="primary"
+            type="submit"
+            value="Go!"
+          ></input>
         </form>
       </div>
     </div>

@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Card from 'react-bootstrap/Card';
 
 function WeatherCard({ apiData }) {
-  const [feels_like, setFeelsLike] = useState('');
-  const [mainTemp, setMainTemp] = useState('');
-  const [description, setDescription] = useState('');
+  // const [feels_like, setFeelsLike] = useState('');
+  // const [mainTemp, setMainTemp] = useState('');
+  // const [description, setDescription] = useState('');
 
-  const [iconID, setIconID] = useState('');
+  // const [iconID, setIconID] = useState('');
 
   //   const assignClass = () => {
   //     if(apiData...description === "sunny"){
