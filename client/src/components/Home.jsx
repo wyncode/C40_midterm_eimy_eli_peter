@@ -5,6 +5,7 @@ import Title from './Title';
 import Description from './Description';
 import Search from './Search';
 import WeatherCard from './WeatherCard';
+import Outfit from './Outfit';
 
 const Home = () => {
   const [apiData, setApiData] = useState(null);
@@ -16,9 +17,9 @@ const Home = () => {
       ) : (
         <>
           <WeatherCard apiData={apiData} />
+          <Outfit apiData={apiData} />
         </>
       )}
-
       <Search setApiData={setApiData} />
     </div>
   );
