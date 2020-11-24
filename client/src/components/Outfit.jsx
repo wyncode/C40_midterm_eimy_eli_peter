@@ -10,96 +10,98 @@ import React, { useState, useEffect } from 'react';
 const Outfit = ({ apiData }) => {
   const [main, setMain] = useState(null);
   const [outfit, setOutfit] = useState({
-    male:
-      'Traverse Poncho, Mesh Sneakers, Waterproof Boonie Hat, T-shirt, Shorts.',
-    female: 'Jumpsuit, Clogs, Rain Bonnet, Rain Poncho, Waterproof bag.'
+    male: '👨:',
+    female: '👩:'
   });
 
   const recomendation = (apiData) => {
-    const rec = { male: '', female: '' };
+    let rec = { male: '', female: '' };
     console.log(apiData.data.weather[0].main);
     switch (apiData.data.weather[0].main) {
       case 'Clouds':
         rec.male =
-          '👨:Shoreline Jacket, Slim Fit Pants, Fit Henley, Waterproof Chukka.';
+          '👨: Shoreline Jacket, Slim Fit Pants, Fit Henley, Waterproof Chukka.';
         rec.female =
-          '👩:Hooded Rain Jacket, lightweight Pants, Wrap Top, Waterproof bag, Rain Boots.';
+          '👩: Lightweight Pants, Wrap Top, Waterproof bag, Rain Boots.';
         break;
 
-      // case "Drizzle":
-      //  return <>
-      //   <h3>👨Men</h3>
-      //   <p>Rain Jacket, Active Pants, Watertight Cap, Short Sleve T-shirt, Waterproof Boots.</p>
-      //   <h3>👩Women</h3>
-      //   <p>Vinyl Smock, Short Sleeve Dress, Waterproof Hood, Waterproof Tote Bag, Rain Booties.</p>
-      //   </>
-      //   break;
+      case 'Drizzle':
+        rec.male =
+          '👨: Rain Jacket, Active Pants, Watertight Cap, Short Sleve T-shirt, Waterproof Boots.';
+        rec.female =
+          '👩: Vinyl Smock, Short Sleeve Dress, Waterproof Hood, Waterproof Tote Bag, Rain Booties.';
+        break;
 
-      // case "Rain":
-      //  return  <>
-      //   <h3>👨Men</h3>
-      //   <p>Traverse Poncho, Mesh Sneakers, Waterproof Boonie Hat, T-shirt, Shorts.</p>
-      //   <h3>👩Women</h3>
-      //   <p>Jumpsuit, Clogs, Rain Bonnet, Rain Poncho, Waterproof bag.</p>
-      //  </>
-      // break;
-      // case "Snow":
-      //  return  <>
-      //   <h3>👨Men</h3>
-      //   <p>Flannel Shirt Jacket, Snow Boots, Weather-ready Parka, Dark-Wash Jeans, Puffer Vest, Wool Beanie, Leather or wool Gloves, Wool Overcoat, Scarf.</p>
-      //   <h3>👩Women</h3>
-      //   <p>Winter Coat, Mittens, Snow Boots, Wool Beanie, Jeans, Thermal Tights, Scarf.</p>
-      //   </>
-      //   break;
+      case 'Rain':
+        rec.male =
+          '👨: Traverse Poncho, Mesh Sneakers, Waterproof Boonie Hat, T-shirt, Shorts.';
+        rec.female =
+          '👩: Jumpsuit, Clogs, Rain Bonnet, Rain Poncho, Waterproof bag.';
+        break;
 
-      // case "Clear":
-      //  return  <>
-      //   <h3>👨Men</h3>
-      //   <p>Shorts, T-shirt, Sneakers.</p>
-      //   <h3>👩Women</h3>
-      //   <p>Tank Dress, Sun Hat, Platform Wedge Sandals.</p>
-      //   </>
-      //   break;
-      // case "Clouds":
-      //  return  <>
-      //   <h3>👨Men</h3>
-      //   <p>Sweater, Long Sleeve Shirt, Jeans, Boots, Umbrella.</p>
-      //   <h3>👩Women</h3>
-      //   <p>Knit Cardigan, Button-down Collar Blouse, Skinny Jeans, Boots, Umbrella.</p>
-      //   </>
-      //   break;
-      //  case "Mist":
-      //  return  <>
-      //     <h3>👨Men</h3>
-      //     <p>Coat, Pants, Sneakers, Long Sleeve Shirt.</p>
-      //     <h3> 👩Women</h3>
-      //     <p>Bootcut pants, Sneakers, Sheer Top, Coat.</p>
-      //   </>
-      //  break;
+      case 'Snow':
+        rec.male =
+          '👨: Flannel Shirt Jacket, Snow Boots, Weather-ready Parka, Dark-Wash Jeans, Puffer Vest, Wool Beanie, Leather or wool Gloves, Wool Overcoat, Scarf.';
+        rec.female =
+          '👩: Winter Coat, Mittens, Snow Boots, Wool Beanie, Jeans, Thermal Tights, Scarf.';
+        break;
+
+      case 'Clear':
+        rec.male = '👨: Shorts, T-shirt, Sneakers.';
+        rec.female = '👩: Tank Dress, Sun Hat, Platform Wedge Sandals. ';
+        break;
+
+      case 'Clouds':
+        rec.male = '👨: Sweater, Long Sleeve Shirt, Jeans, Boots, Umbrella.';
+        rec.female =
+          '👩: Knit Cardigan, Button-down Collar Blouse, Skinny Jeans, Boots, Umbrella. ';
+        break;
+
+      case 'Mist':
+        rec.male = '👨: Coat, Pants, Sneakers, Long Sleeve Shirt. ';
+        rec.female = '👩: Bootcut pants, Sneakers, Sheer Top, Coat.';
+        break;
+
       // case "Smoke":
-      //   <p></p>
-      // )
+
+      // rec.male = "👨: "
+      // rec.female ="👩: "
+      // break;
+
       // case "Haze":
-      //   <p></p>
-      // )
+      // rec.male = "👨: "
+      // rec.female ="👩: "
+      // break;
+
       // case "Dust":
-      //   <p></p>
-      // )
+      // rec.male = "👨: "
+      // rec.female ="👩: "
+      // break;
+
       // case "Fog":
-      //   <p></p>
-      // )
+      // rec.male = "👨: "
+      // rec.female ="👩: "
+      // break;
+
       // case "Sand":
-      //   <p></p>
-      // )
+      // rec.male = "👨: "
+      // rec.female ="👩: "
+      // break;
+
       // case "Ash":
-      //   <p></p>
-      // )
+      // rec.male = "👨: "
+      // rec.female ="👩: "
+      // break;
+
       // case "Squall":
-      //   <p></p>
-      // )
+      // rec.male = "👨: "
+      // rec.female ="👩: "
+      // break;
+
       // case "Tornado":
-      //   <p></p>
-      // )
+      // rec.male = "👨: "
+      // rec.female ="👩: "
+      // break;
     }
     return rec;
   };
