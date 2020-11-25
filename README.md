@@ -1,66 +1,58 @@
-# Node / Create-React-App mashup
+# C40 Midterm Group 2 - Weather the Fashion
 
-Read the instructions thoroughly before starting your project.
+_**Weather the Fashion**_ is an app that will give you an outfit recommendation based on the weather of a searched City.
+
+## Status
+
+The project is currently done from a functional standpoint. Though more additional features could be added for a more robust application.
+
+## Screenshots
+
+<img src="./screenshots/landing-page.png"
+     alt="landing page screenshot"
+     style="float: left; margin-right: 10px;" />
+
+<img src="./screenshots/weather-fetcher.png"
+     alt="landing page screenshot"
+     style="float: left; margin-right: 10px;" />
 
 ## Setup
 
-- `git clone` this repo
+- `git` clone into it
 - `cd` into it.
 - `yarn install`
 - `cd client && yarn install`
+- `yarn add axios`
+- `yarn add react-bootstrap bootstrap`
 
-## Available build commands
+## Who
 
-- `yarn dev`: Runs BOTH your Express.JS and React developer environment locally at the same time. Any logs coming from Express will be prefaced with `[0]`, any logs from `create-react-app` will be prefaced with `[1]`.
-- `yarn server`: Runs JUST your Express.JS server.
-- `yarn client`: Runs JUST your front-end React app.
+We are Peter, Eli and Eimy. Wyncode students, developers looking forward to better the world with our ideas and new learned skills.
 
-Open [http://localhost:3000](http://localhost:3000) to view your local React app in the browser. The page will reload if you make edits.
+## How
 
-## To deploy
+The idea was to have a fully functional app that would suggest what would be more appropriate to wear depending on the weather of the city searched. We have made use of the CSS, JS, HTML, React, DOM manupulation etc. All the skills we have managed to learn. No specific versions of other software is required to run this app.
 
-NOTE: Heroku specifically runs `npm start`, so don't remove that from your package.json file.
+## Install
 
-- `heroku create your-app-name`
-- `git push heroku master`
+No install or special configuration is necessary for this project to run other than internet connection for this web based application, and a phone or computer to access it.
 
-## Project Requirements
+## API Information
 
-- [ ] Your project should pull data from an API. There are lots of options [here](https://github.com/toddmotto/public-apis) and [here](https://market.mashape.com/).
-  - Avoid any APIs that require OAuth (we'll talk about that later).
-  - Many APIs require an API key. Just sign up for an account and attach the key to your URL. Please make sure not to share your secret keys in a public GitHub repo.
-  - Some APIs don't allow _Cross-Origin Resource Sharing_ (CORS), meaning you can't make AJAX requests to them. You can get around this by proxying your requests with your Express server.
-- [ ] Your project should render a list of data from the API.
-  - [ ] Your project should allow the list to be filtered or searched.
-- [ ] Your project should show details about a single resource when clicked.
-- [ ] Your project should look (really) pretty!
-- [ ] You and your team should employ good Git and GitHub collaboration practices.
-- [ ] Your project must have a README.md file explaining what the project does and why it matters. [Here's an example](https://github.com/codeforamerica/howto/blob/master/Good-READMEs.md) of a great README.md template.
+-We have made use of the Open Weather Map which can be located here (api.openweathermap.org/data/2.5/weather?q={city name}&appid={API key}).
+-After making our account with the client we generated our key to use within our app deciding on which data to pull from a variety of choices they had available. (https://openweathermap.org/api)
+-They provided us with the kelvin units which we had to convert into farengheights. This was done by adding the `&units=imperial` in the URL of the call to get our API.
 
-| Rubric Criterion                                                                         | Points |
-| ---------------------------------------------------------------------------------------- | ------ |
-| Ability to search or filter, use of React Router                                         | 10     |
-| Code formatting and quality: indentation, variable and file naming conventions, etc.     | 10     |
-| No unused variables or imports, compiler errors                                          | 10     |
-| Proper use of environment variables for API keys or CORS proxy if needed                 | 10     |
-| Overall look and feel of application, well organized CSS files                           | 10     |
-| Well written documentation                                                               | 10     |
-| Use of GitHub issues, branches and commit messages                                       | 10     |
-| Look and feel of demo slide deck                                                         | 10     |
-| Ability to explain code decisions in demo                                                | 10     |
-| Ability to defend code decisions in response to panel questions                          | 10     |
+## How It Works
 
-## Bonus
+- The end-user will open up the web-application and land on its landing page which will present a title question of "What should you wear today?
+- The end-user will then type in the City Name of their choosing into the search from
+- After inputting in the city and either hitting `enter` or the "Go!" button the app fetches data from the API we mentioned above.
+- This API feeds us a couple different data points from a selected city for that day (i.e temperature, description, humidity etc.)
+- This response data is then sent through two functional components
+- The first functional component ("./WeatherCard.jsx") which will output and render the specific data points we want (City Name, Main Temperature, Feels Like Temperature and Description)
+- The second functional component ("./Outfit.jsx") receives the response data, specifically targeting the 'Main' weather description, outputting a recommendation based on conditional logic in a switch statement.
+- The outputs of both the first and second component are then rendered on the same page
+- The user can search for a new City at any time and the information will be updated.
 
-- Fanciful animations and transitions
-- Incorporate multiple APIs into a single app
-
-## Demo Requirements
-
-Create a slide deck for the technical panel. (Here's an [example](https://docs.google.com/presentation/d/15rfR-S5qAlzx4rHwBp_kJOlu0nQ7hcZOruTwbH6zRvQ/edit?usp=sharing).)
-
-- It should focus on _how_ you built the app.
-- Include code snippets with brief explanations. Or, specific references to the location of the code in your GitHub repo.
-- It should emphasize your technical setbacks and solutions.
-- Get straight to the point.
-- Be prepared to answer questions.
+## Enjoy and hope you are prepared for today's weather!
