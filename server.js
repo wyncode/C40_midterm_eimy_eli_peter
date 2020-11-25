@@ -11,7 +11,7 @@ app.get('/api/search', async (request, response) => {
   try {
     if (search) {
       const { data } = await axios.get(
-        `https://api.openweathermap.org/data/2.5/weather?q=${search}&appid=${process.env.API_KEY}`
+        `https://api.openweathermap.org/data/2.5/weather?q=${search}&units=imperial&appid=${process.env.API_KEY}`
       );
       response.json(data);
     } else {

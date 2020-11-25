@@ -6,18 +6,22 @@ import Description from './Description';
 import Search from './Search';
 import WeatherCard from './WeatherCard';
 import Outfit from './Outfit';
+import Card from 'react-bootstrap/Card';
 
 const Home = () => {
   const [apiData, setApiData] = useState(null);
   return (
-    <div>
+    <div className="home">
       <Title />
       {!apiData ? (
         <Description />
       ) : (
         <>
-          <WeatherCard apiData={apiData} />
-          <Outfit apiData={apiData} />
+          <Card className="weather bg-transparent border-transparent border-0">
+            <WeatherCard apiData={apiData} />
+
+            <Outfit apiData={apiData} />
+          </Card>
         </>
       )}
       <Search setApiData={setApiData} />

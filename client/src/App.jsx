@@ -1,6 +1,5 @@
-import React /*{ useState, useEffect }*/ from 'react';
+import React from 'react';
 import { AppContextProvider } from './context/AppContext';
-//import ContextDemo from './components/ContextDemo';
 import Home from './components/Home';
 
 import './App.css';
@@ -8,7 +7,7 @@ import './App.css';
 const App = () => {
   return (
     <AppContextProvider>
-      <div id="demo">
+      <div>
         <Home />
       </div>
     </AppContextProvider>

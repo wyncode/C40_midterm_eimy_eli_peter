@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import '../App.css';
 import axios from 'axios';
-// import API_KEY from '../../../env';
 
 const Search = ({ setApiData }) => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -15,20 +14,27 @@ const Search = ({ setApiData }) => {
       })
       .catch((err) => {
         console.log(err);
-        //setError(true)
       });
   };
 
   return (
     <div>
-      <div className="form-container">
-        <form onSubmit={handleSubmit}>
+      <div class="container">
+        <form class="form-inline" onSubmit={handleSubmit}>
           <input
+            class="form-control form-control-lg"
+            placeholder="Search City Name"
             type="text"
             id="searchbar"
             onChange={(e) => setSearchTerm(e.target.value)}
           ></input>
-          <input type="submit" value="Go!"></input>
+          <input
+            id="sumbit_button"
+            variant="primary"
+            type="submit"
+            class="btn btn-primary btn-lg"
+            value="Go!"
+          ></input>
         </form>
       </div>
     </div>
