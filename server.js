@@ -10,15 +10,17 @@ app.get('/api/search', async (request, response) => {
   const { search } = request.query;
   try {
     if (search) {
+      console.log('hello');
+      console.log(search);
       const { data } = await axios.get(
         `https://api.openweathermap.org/data/2.5/weather?q=${search}&units=imperial&appid=${process.env.API_KEY}`
       );
+
       response.json(data);
-    } else {
-      res.json({ message: 'nothing to see here.' });
     }
   } catch (err) {
-    console.log(err);
+    console.log(err.toString());
+    response.json({ error: err.toString() });
   }
 });
 if (process.env.NODE_ENV === 'production') {
