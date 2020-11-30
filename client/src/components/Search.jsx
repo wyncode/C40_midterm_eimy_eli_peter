@@ -28,7 +28,9 @@ const Search = ({ setApiData }) => {
   return (
     <div>
       <div class="container">
+
         {error && 'City not found.'}
+
         <form class="form-inline" onSubmit={handleSubmit}>
           <input
             class="form-control form-control-lg"
