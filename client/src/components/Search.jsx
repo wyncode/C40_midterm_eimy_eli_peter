@@ -4,13 +4,21 @@ import axios from 'axios';
 
 const Search = ({ setApiData }) => {
   const [searchTerm, setSearchTerm] = useState('');
+  const [error, setError] = useState(null);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
       .get(`/api/search?search=${searchTerm}`)
       .then((res) => {
-        setApiData(res);
+        console.log(res);
+        if (res.data.error) {
+          setError(res.data.error);
+          setApiData(null);
+        } else {
+          setApiData(res);
+          setError(null);
+        }
       })
       .catch((err) => {
         console.log(err);
@@ -20,6 +28,9 @@ const Search = ({ setApiData }) => {
   return (
     <div>
       <div class="container">
+
+        {error && 'City not found.'}
+
         <form class="form-inline" onSubmit={handleSubmit}>
           <input
             class="form-control form-control-lg"
